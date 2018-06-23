@@ -2,7 +2,9 @@ package at.dropical.shared.example;
 // Created by julian on 23.06.18.
 
 /**
- * TODO Description
+ * Here be dragons.
+ * Or the example code on how to use our
+ * client/server communication interface.
  */
 public class ExampleClient {
 
