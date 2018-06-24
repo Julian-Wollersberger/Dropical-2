@@ -11,8 +11,9 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class ExampleClientTest {
 
+    /** Run it without an exception. */
     @Test
-    void main() {
+    void mainTest() {
         ExampleClient.main(null);
     }
 }
