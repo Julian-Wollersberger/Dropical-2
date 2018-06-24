@@ -9,7 +9,7 @@ this project.
 The ones with computer specific paths not.
 This will be the libGDX client.
 
-##Discuss keyword
+## Discuss keyword
 We use this word in comments to mark
 that comment similar to a TODO.  
 ```
