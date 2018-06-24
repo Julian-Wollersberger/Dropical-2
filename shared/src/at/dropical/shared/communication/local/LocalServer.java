@@ -8,8 +8,6 @@ import at.dropical.shared.communication.ToClientMagic;
  * functions to call on the server, therefore
  * a local server has to implement this interface.
  *
- * discuss The alternative would be lambda expressions / method references.
- *
  * When using a remote server with sockets,
  * the server probably must be initialised
  * in other ways.

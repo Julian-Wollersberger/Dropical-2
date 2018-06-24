@@ -7,7 +7,10 @@ import at.dropical.shared.PlayerAction;
 /**
  * <h1>Client to Server Communication</h1>
  * Easy to use API / Facade / Adapter for the Client
- * to communicate to the server.
+ * to communicate to the server. (communication == magic)
+ *
+ * The client has an instance of this class. That instance
+ * is paired with a ToServerMagic instance.
  *
  * <h1>Coordinate System</h1>
  * All arrays (Arena, Tetrominos) must follow the coordinate axes

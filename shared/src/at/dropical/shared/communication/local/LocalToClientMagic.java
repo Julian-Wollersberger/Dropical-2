@@ -8,8 +8,10 @@ import at.dropical.shared.communication.ToClientMagic;
 import java.util.List;
 
 /**
- * TODO Description
- * TODO write test cases
+ * Communication with a local client.
+ * The data is buffered between calls of send...() and get...()
+ * and only changes with updateServer().
+ * @see ToClientMagic
  */
 public class LocalToClientMagic implements ToClientMagic {
 
@@ -34,7 +36,8 @@ public class LocalToClientMagic implements ToClientMagic {
     GameState gameState;
     String customDataToClient;
 
-    /** Forwards call to server. */
+    /** Forwards call to server.
+     * fixme clear buffers on update */
     void updateServer() {
         localServer.update();
     }

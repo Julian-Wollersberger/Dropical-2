@@ -9,9 +9,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * TODO Description
- * Makes a local Server.
- * TODO write test cases
+ * Makes and communication with a local server.
+ * The data is buffered between calls of send...() and get...()
+ * and only changes with updateServer().
+ *
  * fixme clear internal states every cycle
  */
 public class LocalToServerMagic implements ToServerMagic {

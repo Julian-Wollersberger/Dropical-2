@@ -4,12 +4,15 @@ package at.dropical.shared.communication;
 import at.dropical.shared.GameState;
 import at.dropical.shared.PlayerAction;
 
-import java.util.Collection;
 import java.util.List;
 
 /**
- * TODO Description
+ * <h1>Server to Client Communication</h1>
+ * An API for the server for easy communication
+ * with a client. (communication == magic)
  *
+ * The server has an instance of this class. That instance
+ * is paired with a ToClientMagic instance.
  *
  * <h1>Coordinate System</h1>
  * All arrays (Arena, Tetrominos) must follow the coordinate axes

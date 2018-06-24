@@ -2,14 +2,14 @@ package at.dropical.shared;
 
 import at.dropical.shared.communication.ToServerMagic;
 import at.dropical.shared.communication.local.LocalToServerMagic;
-import at.dropical.shared.example.ExampleServer;
 import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 // Created by julian on 24.06.18.
 
 /**
- * TODO Description
+ * Test if the data is sent with
+ * {@link LocalToServerMagic} and {@link at.dropical.shared.communication.local.LocalToClientMagic}
  */
 class LocalToServerMagicTest {
 
