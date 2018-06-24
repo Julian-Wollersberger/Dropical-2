@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1"
+     xmlns="http://www.w3.org/2000/svg"
+     width="400" height="70"
+>
+    <rect width="400" height="70" fill="grey" fill-opacity="0.1"/>
+
+    <text font-size="56" x="12" y="50">
+        <tspan fill="green">D</tspan>
+        <tspan fill="green">r</tspan>
+        <tspan fill="green">o</tspan>
+        <tspan fill="green">p</tspan>
+        <tspan fill="green">i</tspan>
+        <tspan fill="green">c</tspan>
+        <tspan fill="green">a</tspan>
+        <tspan fill="green">l</tspan>
+        <tspan fill="green"> </tspan>
+        <tspan fill="green">2</tspan>
+    </text>
+</svg>
