@@ -3,7 +3,7 @@
      xmlns="http://www.w3.org/2000/svg"
      width="325" height="70"
 >
-    <rect width="325" height="70" fill="grey" fill-opacity="0.1"/>
+    <rect width="325" height="70" fill="grey" fill-opacity="0"/>
 
     <text font-size="56" x="12" y="50">
         <tspan fill="green">Dropical 2</tspan>
