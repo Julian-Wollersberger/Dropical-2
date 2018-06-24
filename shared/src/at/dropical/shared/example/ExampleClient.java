@@ -4,6 +4,8 @@ package at.dropical.shared.example;
 import at.dropical.shared.client.LocalToServerMagic;
 import at.dropical.shared.client.ToServerMagic;
 
+import java.util.Arrays;
+
 /**
  * Here be dragons.
  * Or the example code on how to use our
@@ -24,13 +26,25 @@ public class ExampleClient /*extends LibGDX Game*/ {
         client.dispose();
     }
 
-    private ToServerMagic server = new LocalToServerMagic();
+    /** Our local server */
+    private ToServerMagic server;
 
     public void create() {
-
+        server = new LocalToServerMagic();
     }
 
     public void render() {
+        byte[][] arena = server.getArena();
+        byte[][] tetromino = server.getTetromino();
+        int posX = server.getTetrX();
+        int posY = server.getTetrY();
+        byte[][] nextTetromino = server.getNextTetromino();
+
+        System.out.println("Arena:\n"+ Arrays.deepToString(arena));
+        System.out.println("Tetromino:\n"+ Arrays.deepToString(tetromino));
+        System.out.println("Next Tetromino:\n"+ Arrays.deepToString(nextTetromino));
+        System.out.println("X position of tetromino: "+ posX);
+        System.out.println("Y position of tetromino: "+ posY);
 
         server.updateServer();
     }
