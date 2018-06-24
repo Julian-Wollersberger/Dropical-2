@@ -32,7 +32,7 @@ public class LocalToClientMagic implements ToClientMagic {
     int y;
     byte[][] nextTetromino;
     GameState gameState;
-    private String customData;
+    String customDataToClient;
 
     /** Forwards call to server. */
     void updateServer() {
@@ -81,11 +81,11 @@ public class LocalToClientMagic implements ToClientMagic {
 
     @Override
     public void sendCustomData(String string) {
-        customData = string;
+        customDataToClient = string;
     }
 
     @Override
     public String getCustomData() {
-        return customData;
+        return clientEnd.customDataToServer;
     }
 }

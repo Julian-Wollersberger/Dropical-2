@@ -12,6 +12,7 @@ import java.util.List;
  * TODO Description
  * Makes a local Server.
  * TODO write test cases
+ * fixme clear internal states every cycle
  */
 public class LocalToServerMagic implements ToServerMagic {
 
@@ -27,6 +28,7 @@ public class LocalToServerMagic implements ToServerMagic {
     List<PlayerAction> getPlayerActions() {
         return actionList;
     }
+    String customDataToServer;
 
     /* Public Methods for client. */
 
@@ -78,11 +80,11 @@ public class LocalToServerMagic implements ToServerMagic {
 
     @Override
     public void sendCustomData(String string) {
-        serverEnd.sendCustomData(string);
+        customDataToServer = string;
     }
 
     @Override
     public String getCustomData() {
-        return serverEnd.getCustomData();
+        return serverEnd.customDataToClient;
     }
 }

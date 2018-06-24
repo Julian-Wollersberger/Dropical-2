@@ -6,7 +6,7 @@ import at.dropical.shared.communication.local.LocalServer;
 
 /**
  * Only sends data around with the LocalClient/ServerMagic.
- * Used in the test for them.
+ * Used in the tests for them.
  */
 public class LocalMagicTestServer implements LocalServer {
     private ToClientMagic client;
@@ -17,10 +17,21 @@ public class LocalMagicTestServer implements LocalServer {
         this.client = client;
     }
 
-    /** Process the most complicated game logic ever. */
+    /** Send all received inputs back to the client. */
     @Override
     public void update() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(client.getCustomData()).append(" ");
 
+        for(PlayerAction action : client.getPlayerActions()) {
+            builder.append(action).append(" ");
+        }
+        client.sendCustomData(builder.toString());
+
+        client.sendArena(new byte[10][20]);
+        client.sendTetromino(new byte[4][4]);
+        client.sendNextTetromino(new byte[4][4]);
+        client.sendGameState(GameState.GAME_LOST);
     }
 
     @Override
