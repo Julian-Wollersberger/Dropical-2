@@ -1,3 +1,9 @@
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Julius-Beides/Dropical-2/master/Resources/title.svg?sanitize=true">
+</p>
+
+
 # Unit Testing
 I want to do unit testing with JUnit 5.
 
