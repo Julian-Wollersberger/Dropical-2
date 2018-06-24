@@ -4,7 +4,7 @@ package at.dropical.shared;
 /**
  * TODO Description
  */
-public class LocalServerFacade implements ServerFacade {
+public class LocalClientToServerMagic implements ClientToServerMagic {
     @Override
     public byte[][] getArena() {
         return new byte[0][0];

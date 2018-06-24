@@ -16,7 +16,7 @@ package at.dropical.shared;
  *     <li> Array are indexed <code>arr[x][y]</code></li>
  * </ul>
  */
-public interface ServerFacade {
+public interface ClientToServerMagic {
 
     /*discuss In my opinion, this should be the job of
      * a concrete implementation.  */

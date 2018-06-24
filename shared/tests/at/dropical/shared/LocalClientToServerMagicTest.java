@@ -2,20 +2,18 @@ package at.dropical.shared;
 
 import org.junit.jupiter.api.*;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 // Created by julian on 24.06.18.
 
 /**
  * TODO Description
  */
-class LocalServerFacadeTest {
+class LocalClientToServerMagicTest {
 
-    private ServerFacade server;
+    private ClientToServerMagic server;
 
     @BeforeEach
     void setUp() {
-        server = new LocalServerFacade();
+        server = new LocalClientToServerMagic();
     }
 
     @Test
