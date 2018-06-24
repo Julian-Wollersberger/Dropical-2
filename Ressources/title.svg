@@ -6,15 +6,6 @@
     <rect width="450" height="70" fill="grey" fill-opacity="0.1"/>
 
     <text font-size="56" x="12" y="50">
-        <tspan fill="green">D</tspan>
-        <tspan fill="green">r</tspan>
-        <tspan fill="green">o</tspan>
-        <tspan fill="green">p</tspan>
-        <tspan fill="green">i</tspan>
-        <tspan fill="green">c</tspan>
-        <tspan fill="green">a</tspan>
-        <tspan fill="green">l</tspan>
-        <tspan fill="green"> </tspan>
-        <tspan fill="green">2</tspan>
+        <tspan fill="green">Dropical 2</tspan>
     </text>
 </svg>
