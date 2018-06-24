@@ -11,6 +11,7 @@ import java.util.List;
 /**
  * TODO Description
  * Makes a local Server.
+ * TODO write test cases
  */
 public class LocalToServerMagic implements ToServerMagic {
 
@@ -73,5 +74,15 @@ public class LocalToServerMagic implements ToServerMagic {
     @Override
     public void close() {
         serverEnd.close();
+    }
+
+    @Override
+    public void sendCustomData(String string) {
+        serverEnd.sendCustomData(string);
+    }
+
+    @Override
+    public String getCustomData() {
+        return serverEnd.getCustomData();
     }
 }

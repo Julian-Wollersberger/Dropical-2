@@ -19,7 +19,8 @@ public interface LocalServer {
     /** May only be called once in singleplayer
      * but multiple times if the server can handle multiplayer.
      * DISCUSS confusing in singleplayer. Maybe rename to initialise() */
-    void addPlayer(ToClientMagic client) throws IllegalStateException;
+    void initialise(ToClientMagic client);
+    //void addPlayer(ToClientMagic client) throws IllegalStateException;
 
     /* Called by external game loop. */
     void update();

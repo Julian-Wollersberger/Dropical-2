@@ -15,8 +15,6 @@ class ExampleClientTest {
     @Test
     void mainTest() {
         ExampleClient.main(null);
-
-
     }
 
 

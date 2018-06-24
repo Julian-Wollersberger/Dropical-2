@@ -20,6 +20,7 @@ public class ExampleClient /*extends Game*/ {
         ExampleClient client = new ExampleClient();
         client.create();
 
+        //while(true)
         client.render();
         client.render();
         client.render();

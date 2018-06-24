@@ -1,18 +1,15 @@
-package at.dropical.shared.example;
+package at.dropical.shared;
 // Created by julian on 24.06.18.
 
-import at.dropical.shared.PlayerAction;
-import at.dropical.shared.communication.local.LocalServer;
 import at.dropical.shared.communication.ToClientMagic;
+import at.dropical.shared.communication.local.LocalServer;
 
 /**
- * This is a basic demonstration how the main class
- * of a server should look like.
+ * Only sends data around with the LocalClient/ServerMagic.
+ * Used in the test for them.
  */
-public class ExampleServer implements LocalServer {
-
+public class LocalMagicTestServer implements LocalServer {
     private ToClientMagic client;
-    private int posX = 10;
 
     /** The Server is initialised by {@link ToClientMagic}. */
     @Override
@@ -23,16 +20,12 @@ public class ExampleServer implements LocalServer {
     /** Process the most complicated game logic ever. */
     @Override
     public void update() {
-        for(PlayerAction action : client.getPlayerActions()) {
-            if(action == PlayerAction.LEFT)
-                posX--;
-        }
 
-        client.sendTetrX(posX);
     }
 
     @Override
     public void close() {
         System.out.println("Server is tired. Server goes to bed.");
     }
+
 }

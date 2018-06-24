@@ -32,9 +32,10 @@ public interface ToServerMagic {
     byte[][] getNextTetromino();
     GameState getGameState();
 
-    //discuss should we allow custom data?
-    //void sendCustomData(String string);
-    //String getCustomData();
+    /** Send anything you want as a String.
+     * Useful in unit tests. */
+    void sendCustomData(String string);
+    String getCustomData();
 
     void close();
 }

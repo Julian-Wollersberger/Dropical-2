@@ -9,6 +9,7 @@ import java.util.List;
 
 /**
  * TODO Description
+ * TODO write test cases
  */
 public class LocalToClientMagic implements ToClientMagic {
 
@@ -18,7 +19,7 @@ public class LocalToClientMagic implements ToClientMagic {
     public LocalToClientMagic(LocalToServerMagic clientEnd, LocalServer localServer) {
         this.clientEnd = clientEnd;
         this.localServer = localServer;
-        localServer.addPlayer(this);
+        localServer.initialise(this);
     }
 
     /* Package private fields that are read
@@ -31,6 +32,7 @@ public class LocalToClientMagic implements ToClientMagic {
     int y;
     byte[][] nextTetromino;
     GameState gameState;
+    private String customData;
 
     /** Forwards call to server. */
     void updateServer() {
@@ -75,5 +77,15 @@ public class LocalToClientMagic implements ToClientMagic {
     @Override
     public void sendGameState(GameState gameState) {
         this.gameState = gameState;
+    }
+
+    @Override
+    public void sendCustomData(String string) {
+        customData = string;
+    }
+
+    @Override
+    public String getCustomData() {
+        return customData;
     }
 }

@@ -33,4 +33,9 @@ public interface ToClientMagic {
     void sendTetrY(int y);
     void sendNextTetromino(byte[][] nextTetromino);
     void sendGameState(GameState gameState);
+
+    /** Send anything you want as a String.
+     * Useful in unit tests. */
+    void sendCustomData(String string);
+    String getCustomData();
 }
