@@ -1,4 +1,4 @@
-package at.dropical.shared;
+package at.dropical.shared.client;
 // Created by julian on 24.06.18.
 
 /**
@@ -16,7 +16,7 @@ package at.dropical.shared;
  *     <li> Array are indexed <code>arr[x][y]</code></li>
  * </ul>
  */
-public interface ClientToServerMagic {
+public interface ToServerMagic {
 
     /*discuss In my opinion, this should be the job of
      * a concrete implementation.  */
@@ -29,5 +29,6 @@ public interface ClientToServerMagic {
     byte[][] getNextTetromino();
     /*GamePhase*/ void getGamePhase();
 
+    void updateServer();
     void close();
 }

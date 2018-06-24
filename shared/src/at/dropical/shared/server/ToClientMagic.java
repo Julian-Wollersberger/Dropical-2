@@ -1,4 +1,4 @@
-package at.dropical.shared;
+package at.dropical.shared.server;
 // Created by julian on 24.06.18.
 
 /**
@@ -15,7 +15,7 @@ package at.dropical.shared;
  *     <li> Array are indexed <code>arr[x][y]</code></li>
  * </ul>
  */
-public interface ServerToClientMagic {
+public interface ToClientMagic {
 
     void sendArena(byte[][] arena);
     void sendTetromino(byte[][] tetromino);

@@ -1,10 +1,10 @@
-package at.dropical.shared;
+package at.dropical.shared.server;
 // Created by julian on 24.06.18.
 
 /**
  * TODO Description
  */
-public class LocalServerToClientMagic implements ServerToClientMagic {
+public class LocalToClientMagic implements ToClientMagic {
     @Override
     public void sendArena(byte[][] arena) {
 
