@@ -1,7 +1,7 @@
 package at.dropical.shared;
 
-import at.dropical.shared.client.ToServerMagic;
-import at.dropical.shared.client.LocalToServerMagic;
+import at.dropical.shared.communication.ToServerMagic;
+import at.dropical.shared.communication.local.LocalToServerMagic;
 import at.dropical.shared.example.ExampleServer;
 import org.junit.jupiter.api.*;
 

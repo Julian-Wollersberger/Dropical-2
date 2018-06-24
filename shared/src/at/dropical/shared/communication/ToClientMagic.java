@@ -1,6 +1,7 @@
-package at.dropical.shared.server;
+package at.dropical.shared.communication;
 // Created by julian on 24.06.18.
 
+import at.dropical.shared.GameState;
 import at.dropical.shared.PlayerAction;
 
 import java.util.Collection;
@@ -31,5 +32,5 @@ public interface ToClientMagic {
     void sendTetrX(int x);
     void sendTetrY(int y);
     void sendNextTetromino(byte[][] nextTetromino);
-    void sendGameState(/*GamePhase*/);
+    void sendGameState(GameState gameState);
 }

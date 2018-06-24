@@ -1,4 +1,4 @@
-package at.dropical.shared.client;
+package at.dropical.shared.communication;
 // Created by julian on 24.06.18.
 
 import at.dropical.shared.GameState;

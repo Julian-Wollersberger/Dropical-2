@@ -1,10 +1,9 @@
 package at.dropical.shared.example;
 // Created by julian on 23.06.18.
 
-import at.dropical.shared.GameState;
 import at.dropical.shared.PlayerAction;
-import at.dropical.shared.client.LocalToServerMagic;
-import at.dropical.shared.client.ToServerMagic;
+import at.dropical.shared.communication.local.LocalToServerMagic;
+import at.dropical.shared.communication.ToServerMagic;
 
 import java.util.Arrays;
 

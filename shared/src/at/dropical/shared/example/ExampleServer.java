@@ -2,8 +2,8 @@ package at.dropical.shared.example;
 // Created by julian on 24.06.18.
 
 import at.dropical.shared.PlayerAction;
-import at.dropical.shared.server.LocalServer;
-import at.dropical.shared.server.ToClientMagic;
+import at.dropical.shared.communication.local.LocalServer;
+import at.dropical.shared.communication.ToClientMagic;
 
 /**
  * This is a basic demonstration how the main class
@@ -16,7 +16,7 @@ public class ExampleServer implements LocalServer {
 
     /** The Server is initialised by {@link ToClientMagic}. */
     @Override
-    public void initialise(ToClientMagic client) {
+    public void addPlayer(ToClientMagic client) {
         this.client = client;
     }
 
