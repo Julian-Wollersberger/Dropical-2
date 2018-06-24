@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/Julius-Beides/Dropical-2/master/Resources/title.svg?sanitize=true">
+  <img src="https://raw.githubusercontent.com/Julius-Beides/Dropical-2/master/Ressources/title.svg?sanitize=true">
 </p>
 
 
