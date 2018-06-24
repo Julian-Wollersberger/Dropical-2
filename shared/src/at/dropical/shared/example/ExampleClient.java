@@ -1,6 +1,8 @@
 package at.dropical.shared.example;
 // Created by julian on 23.06.18.
 
+import at.dropical.shared.GameState;
+import at.dropical.shared.PlayerAction;
 import at.dropical.shared.client.LocalToServerMagic;
 import at.dropical.shared.client.ToServerMagic;
 
@@ -11,7 +13,7 @@ import java.util.Arrays;
  * Or the example code on how to use our
  * client/server communication interface.
  */
-public class ExampleClient /*extends LibGDX Game*/ {
+public class ExampleClient /*extends Game*/ {
 
     /** Represents the LibGDX DesktopLauncher
      * and internal GameLoop. */
@@ -26,31 +28,33 @@ public class ExampleClient /*extends LibGDX Game*/ {
         client.dispose();
     }
 
-    /** Our local server */
+    /** A local server. */
     private ToServerMagic server;
 
+    /** Starts a new local server. */
     public void create() {
-        server = new LocalToServerMagic();
+        server = new LocalToServerMagic(new ExampleServer());
     }
 
+    /** Runs every frame. */
     public void render() {
-        byte[][] arena = server.getArena();
-        byte[][] tetromino = server.getTetromino();
-        int posX = server.getTetrX();
-        int posY = server.getTetrY();
-        byte[][] nextTetromino = server.getNextTetromino();
-
-        System.out.println("Arena:\n"+ Arrays.deepToString(arena));
-        System.out.println("Tetromino:\n"+ Arrays.deepToString(tetromino));
-        System.out.println("Next Tetromino:\n"+ Arrays.deepToString(nextTetromino));
-        System.out.println("X position of tetromino: "+ posX);
-        System.out.println("Y position of tetromino: "+ posY);
-
+        // Process user input.
+        server.sendAction(PlayerAction.LEFT);
+        // Run the game logic on the server.
         server.updateServer();
+
+        // Render everything
+        System.out.println("Arena:\n"+ Arrays.deepToString(server.getArena()));
+        System.out.println("Tetromino:\n"+ Arrays.deepToString(server.getTetromino()));
+        System.out.println("Next Tetromino:\n"+ Arrays.deepToString(server.getNextTetromino()));
+        System.out.println("X position of tetromino: "+ server.getTetrX());
+        System.out.println("Y position of tetromino: "+ server.getTetrY());
+        System.out.println("Current game state: "+ server.getGameState());
     }
 
+    /** When the application is closed */
     public void dispose() {
-
+        server.close();
     }
 }
 

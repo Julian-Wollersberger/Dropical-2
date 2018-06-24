@@ -1,6 +1,9 @@
 package at.dropical.shared.client;
 // Created by julian on 24.06.18.
 
+import at.dropical.shared.GameState;
+import at.dropical.shared.PlayerAction;
+
 /**
  * <h1>Client to Server Communication</h1>
  * Easy to use API / Facade / Adapter for the Client
@@ -18,17 +21,20 @@ package at.dropical.shared.client;
  */
 public interface ToServerMagic {
 
-    /*discuss In my opinion, this should be the job of
-     * a concrete implementation.  */
-    //void connect() throws IllegalStateException;
+    /** Multiple inputs can be sent in one cycle. */
+    void sendAction(PlayerAction action);
+    void updateServer();
 
     byte[][] getArena();
     byte[][] getTetromino();
     int getTetrX();
     int getTetrY();
     byte[][] getNextTetromino();
-    /*GamePhase*/ void getGamePhase();
+    GameState getGameState();
 
-    void updateServer();
+    //discuss should we allow custom data?
+    //void sendCustomData(String string);
+    //String getCustomData();
+
     void close();
 }

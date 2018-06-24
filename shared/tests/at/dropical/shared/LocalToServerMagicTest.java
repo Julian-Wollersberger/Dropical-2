@@ -2,6 +2,7 @@ package at.dropical.shared;
 
 import at.dropical.shared.client.ToServerMagic;
 import at.dropical.shared.client.LocalToServerMagic;
+import at.dropical.shared.example.ExampleServer;
 import org.junit.jupiter.api.*;
 
 // Created by julian on 24.06.18.
@@ -15,7 +16,7 @@ class LocalToServerMagicTest {
 
     @BeforeEach
     void setUp() {
-        server = new LocalToServerMagic();
+        server = new LocalToServerMagic(new ExampleServer());
     }
 
     @Test
