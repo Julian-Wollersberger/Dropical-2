@@ -1,7 +1,6 @@
 package at.dropical.shared;
-/** Up means turn. */
 
-
+/** Inputs from the user. */
 public enum PlayerAction {
-	NOKEY, LEFT, RIGHT, DOWN, DROP, ROTATE_CLOCKWISE, ROTATE_COUNTERCLOCKWISE, START, PAUSE, QUIT
+    NOKEY, LEFT, RIGHT, DOWN, DROP, ROTATE_CLOCKWISE, ROTATE_COUNTERCLOCKWISE, START, PAUSE, QUIT
 }

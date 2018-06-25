@@ -29,7 +29,7 @@ public class LocalToServerMagic implements ToServerMagic {
     List<PlayerAction> getPlayerActions() {
         return actionList;
     }
-    String customDataToServer;
+    String customDataToServer = "";
 
     /* Public Methods for client. */
 
