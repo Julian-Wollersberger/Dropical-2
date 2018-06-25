@@ -28,13 +28,13 @@ public class LocalToClientMagic implements ToClientMagic {
      * in LocalToServerMagic.
      * Discuss Make a clone of the arrays, so the
      * client can't write on the same array instance the server has. */
-    byte[][] arena;
-    byte[][] tetromino;
-    int x;
-    int y;
-    byte[][] nextTetromino;
-    GameState gameState;
-    String customDataToClient;
+    byte[][] arena = new byte[10][20];
+    byte[][] tetromino = new byte[4][4];
+    int x = 0;
+    int y = 0;
+    byte[][] nextTetromino = new byte[4][4];
+    GameState gameState = GameState.GAME_PAUSE;
+    String customDataToClient = "";
 
     /** Forwards call to server.
      * fixme clear buffers on update */

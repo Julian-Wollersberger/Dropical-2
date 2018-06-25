@@ -29,6 +29,12 @@ public class ExampleServer implements LocalServer {
         }
 
         client.sendTetrX(posX);
+        client.sendTetromino(new byte[][]{
+                {0,1,0,1},
+                {1,0,1,0},
+                {0,1,0,1},
+                {1,0,1,0},
+        });
     }
 
     @Override
