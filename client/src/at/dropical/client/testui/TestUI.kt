@@ -25,7 +25,7 @@ class TestUI : Application() {
 
     private var scene: Scene? = null
     /** A local server.  */
-    private val server: ToServerMagic = LocalToServerMagic(ExampleServer()) //TODO chose server implementation
+    private val server: ToServerMagic = LocalToServerMagic(ExampleServer())
 
     @Throws(IOException::class)
     override fun start(primaryStage: Stage) {

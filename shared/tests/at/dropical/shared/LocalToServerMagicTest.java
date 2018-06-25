@@ -25,12 +25,22 @@ class LocalToServerMagicTest {
         server.sendAction(PlayerAction.NOKEY);
         server.sendAction(PlayerAction.LEFT);
         server.updateServer();
-        assertEquals("null NOKEY LEFT ", server.getCustomData());
+        assertEquals("NOKEY LEFT ", server.getCustomData());
 
         // Test if queue is cleared
         server.sendAction(PlayerAction.RIGHT);
         server.updateServer();
-        assertEquals("null RIGHT ", server.getCustomData());
+        assertEquals("RIGHT ", server.getCustomData());
+    }
+
+    /** Nothing my be null even before the firs update.*/
+    @Test
+    void nothingNullTest() {
+        assertNotNull(server.getArena());
+        assertNotNull(server.getTetromino());
+        assertNotNull(server.getNextTetromino());
+        assertNotNull(server.getGameState());
+        assertNotNull(server.getCustomData());
     }
 
     /** Is data plausible? */
@@ -38,12 +48,7 @@ class LocalToServerMagicTest {
     void getDataTest() {
         server.sendCustomData("Wunderschöner String");
         server.updateServer();
-
-        assertNotNull(server.getArena());
-        assertNotNull(server.getTetromino());
-        assertNotNull(server.getNextTetromino());
-        assertNotNull(server.getGameState());
-        assertEquals("Wunderschöner String ", server.getCustomData());
+        assertEquals("Wunderschöner String", server.getCustomData());
 
         //Richtige Array-Größe testen wäre toll.
     }

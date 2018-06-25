@@ -21,11 +21,11 @@ public class LocalMagicTestServer implements LocalServer {
     @Override
     public void update() {
         StringBuilder builder = new StringBuilder();
-        builder.append(client.getCustomData()).append(" ");
 
         for(PlayerAction action : client.getPlayerActions()) {
             builder.append(action).append(" ");
         }
+        builder.append(client.getCustomData());
         client.sendCustomData(builder.toString());
 
         client.sendArena(new byte[10][20]);
