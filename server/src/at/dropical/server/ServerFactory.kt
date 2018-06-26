@@ -1,5 +1,8 @@
 package at.dropical.server
 
+import at.dropical.server.singleplayer.LocalSingleplayerServer
+import at.dropical.shared.communication.local.LocalServer
+
 
 // Created by julian on 25.06.18.
 /**
@@ -9,20 +12,13 @@ package at.dropical.server
  */
 class ServerFactory {
 
-    fun createSingleplayer() {
-
+    /** @return a LocalServer instance that can be given
+     * to a new LocalToServerMagic. */
+    fun createSingleplayer(): LocalServer {
+        return LocalSingleplayerServer()
     }
 
-    fun createLocalMultiplayer() {
-
-    }
-
-    /** Does this belong here or in shared? */
-    fun connectRemoteMultiplayer() {
-
-    }
-
-    fun connectTournamentServer() {
+    fun createLocalTwoPlayer() {
 
     }
 }
