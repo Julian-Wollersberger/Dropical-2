@@ -4,7 +4,6 @@ import at.dropical.shared.communication.ToClientMagic
 import at.dropical.shared.communication.local.LocalServer
 import java.lang.NullPointerException
 
-
 // Created by julian on 26.06.18.
 /**
  * Wraps a SinglePlayer to be a local server.
