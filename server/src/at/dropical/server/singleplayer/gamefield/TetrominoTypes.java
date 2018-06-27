@@ -23,10 +23,10 @@ import java.util.Random;
  */
 public class TetrominoTypes {
     /** Returns a randomly selected type. */
-    public static int[][][] random() {
+    public static int[][][] random(Random random) {
         // will be between 0 (inclusive) and the specified value (exclusive)
-        int rand = new Random().nextInt(count);
-        switch(rand) {
+        int rng = random.nextInt(count);
+        switch(rng) {
             case 0: return Imatrix;
             case 1: return Tmatrix;
             case 2: return Lmatrix;

@@ -1,6 +1,8 @@
 package at.dropical.server.singleplayer.gamefield;
 // Created by julian on 17.11.17.
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Random;
 
 /**
@@ -21,11 +23,11 @@ public class Tetromino {
 
     /** Returns a new Tetromino with a random
      * type and rotation. */
-    public static Tetromino createRandom() {
+    public static @NotNull Tetromino createRandom(Random rand) {
         return new Tetromino(
-                TetrominoTypes.random(),
+                TetrominoTypes.random(rand),
                 // Relies on the modulo in constructor.
-                new Random().nextInt()
+                rand.nextInt()
         );
     }
 

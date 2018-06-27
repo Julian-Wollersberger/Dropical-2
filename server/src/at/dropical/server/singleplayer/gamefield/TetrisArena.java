@@ -8,7 +8,7 @@ import java.util.Random;
  * spaces (blocks) in the Tetris game are occupied
  * or empty.<br><br>
  *
- * Axes: arena[h][w]
+ * fixme Internal Axes: arena[h][w]
  *  h=0 is top, h=height is the bottom of the arena.
  *  w=0 is left, w=width is right.
  *
@@ -206,9 +206,8 @@ public class TetrisArena {
      * Maybe add a mode with this in singleplayer too?
      * @return wherever a block got over the top of
      * the arena. True -> game over! */
-    public boolean addLines(int lineCount) {
+    public boolean addLines(int lineCount, Random rand) {
         boolean overTop = false;
-        Random rand = new Random();
 
         for(int i = 0; i < lineCount && !overTop; i++) {
             overTop = copyUp(height-1);

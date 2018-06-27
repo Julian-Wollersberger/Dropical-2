@@ -2,6 +2,8 @@ package at.dropical.server.singleplayer.gamefield;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Random;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -56,7 +58,7 @@ class TetrominoTest {
         // Rotation should always be valid.
         // (No type has more than four rotations.)
         for(int i = 0; i < 10; i++) {
-            Tetromino tetromino = Tetromino.createRandom();
+            Tetromino tetromino = Tetromino.createRandom(new Random());
             assertTrue(tetromino.getRotation() < 4);
         }
     }

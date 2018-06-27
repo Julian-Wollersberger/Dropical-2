@@ -3,6 +3,7 @@ package at.dropical.server.singleplayer.gamefield;
 import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
+import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -251,15 +252,16 @@ class TetrisArenaTest {
 
     @Test
     void addLinesTest() {
+        Random rand = new Random();
         TetrisArena arena = new TetrisArena();
-        assertFalse(arena.addLines(1));
-        assertFalse(arena.addLines(height -1));
+        assertFalse(arena.addLines(1, rand));
+        assertFalse(arena.addLines(height -1, rand));
 
         //Now over top, because nothing cleared
         assertEquals(0, arena.clearLines());
-        assertTrue(arena.addLines(2));
+        assertTrue(arena.addLines(2, rand));
         // Shouldn't trow exception
-        assertTrue(arena.addLines(4));
+        assertTrue(arena.addLines(4, rand));
     }
 
     /** Manual Test. */
