@@ -1,12 +1,15 @@
 package at.dropical.client.testui
 
+import at.dropical.server.ServerFactory
 import at.dropical.shared.PlayerAction
 import at.dropical.shared.communication.ToServerMagic
 import at.dropical.shared.communication.local.LocalToServerMagic
 import at.dropical.shared.example.ExampleServer
 import javafx.application.Application
 import javafx.application.Platform
+import javafx.event.EventHandler
 import javafx.scene.Scene
+import javafx.scene.control.Button
 import javafx.scene.control.Label
 import javafx.scene.input.KeyCode
 import javafx.scene.layout.GridPane
@@ -23,18 +26,20 @@ fun main(args: Array<String>) {
 
 class TestUI : Application() {
 
-    private var scene: Scene? = null
+    private lateinit var scene: Scene
+    public lateinit var stage: Stage
     /** A local server.  */
-    private val server: ToServerMagic = LocalToServerMagic(ExampleServer())
+    private var server: ToServerMagic? = null
 
     @Throws(IOException::class)
     override fun start(primaryStage: Stage) {
+        stage = primaryStage
         scene = Scene(Label("New Game Starting"), (32 * 10 * 2).toDouble(), (32 * 20).toDouble())
         primaryStage.scene = scene
 
-        scene!!.setOnKeyPressed { event ->
+        scene.setOnKeyPressed { event ->
             /* I love Kotlin. when returns a PlayerAction. */
-            server.sendAction( when (event.code) {
+            server?.sendAction( when (event.code) {
                 KeyCode.W -> PlayerAction.ROTATE_CLOCKWISE
                 KeyCode.A -> PlayerAction.LEFT
                 KeyCode.S -> PlayerAction.DOWN
@@ -44,6 +49,8 @@ class TestUI : Application() {
                 else -> PlayerAction.NOKEY
             })
         }
+
+        addJoinButton()
         primaryStage.show()
 
         // Endless looping thread that terminates
@@ -59,40 +66,52 @@ class TestUI : Application() {
         loopTread.start()
     }
 
+    /** New local Server */
+    fun addJoinButton() {
+        val singlePlayerButton = Button("Singleplayer")
+        singlePlayerButton.onAction = EventHandler {
+            server = LocalToServerMagic(ServerFactory.createSingleplayer())
+        }
+
+        scene.root = HBox(singlePlayerButton)
+    }
 
     fun render() {
-        server.updateServer()
+        val server = this.server
+        if (server != null) {
+            server.updateServer()
 
-        // Designed for two players.
-        val root = HBox()
-        val left = GridPane()
-        val right = GridPane()
-        root.children.addAll(left, right)
+            // Designed for two players.
+            val root = HBox()
+            val left = GridPane()
+            val right = GridPane()
+            root.children.addAll(left, right)
 
-        //Bug: Kotlin does not want to compare Byte and Int.
-        val zero: Byte = 0
+            //Bug: Kotlin does not want to compare Byte and Int.
+            val zero: Byte = 0
 
-        // Render Arena
-        for (y in 0..19) {
-            for (x in 0..9) {
-                left.add(Rectangle(32.0, 32.0,
-                        if (server.arena[x][y] != zero)
-                            Paint.valueOf("green")
-                        else Paint.valueOf("white")
-                ), x, y)
+            // Render Arena
+            for (y in 0..19) {
+                for (x in 0..9) {
+                    left.add(Rectangle(32.0, 32.0,
+                            if (server.arena[x][y] != zero)
+                                Paint.valueOf("green")
+                            else Paint.valueOf("white")
+                    ), x, y)
+                }
             }
-        }
 
-        //Render Tetromino
-        for (y in 0..3) {
-            for (x in 0..3) {
-                if (server.tetrY + y >= 0 && server.tetromino[x][y] != zero)
-                    if (server.tetromino[x][y] != zero)
-                        left.add(Rectangle(32.0, 32.0, Paint.valueOf("darkgreen")),
-                                server.tetrX + x, server.tetrY + y)
+            //Render Tetromino
+            for (y in 0..3) {
+                for (x in 0..3) {
+                    if (server.tetrY + y >= 0 && server.tetromino[x][y] != zero)
+                        if (server.tetromino[x][y] != zero)
+                            left.add(Rectangle(32.0, 32.0, Paint.valueOf("darkgreen")),
+                                    server.tetrX + x, server.tetrY + y)
+                }
             }
+            root.setMinSize((32 * 10 * 20).toDouble(), (32 * 20).toDouble())
+            scene.root = root
         }
-        root.setMinSize((32 * 10 * 20).toDouble(), (32 * 20).toDouble())
-        scene!!.root = root
     }
 }

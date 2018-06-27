@@ -10,7 +10,7 @@ import at.dropical.shared.communication.local.LocalServer
  * We could make this the only public class in the
  * entire server module.
  */
-class ServerFactory {
+object ServerFactory {
 
     /** @return a LocalServer instance that can be given
      * to a new LocalToServerMagic. */

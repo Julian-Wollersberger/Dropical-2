@@ -11,50 +11,12 @@ import static org.junit.jupiter.api.Assertions.*;
  * Test if the data is sent with
  * {@link LocalToServerMagic} and {@link at.dropical.shared.communication.local.LocalToClientMagic}
  */
-class LocalToServerMagicTest {
+class LocalToServerMagicTest extends ToServerMagicHelper {
 
-    private ToServerMagic server;
-
+    @Override
     @BeforeEach
     void setUp() {
-        server = new LocalToServerMagic(new LocalMagicTestServer());
+        server = new LocalToServerMagic(newTestServer());
     }
 
-    @Test
-    void sendAction() {
-        server.sendAction(PlayerAction.NOKEY);
-        server.sendAction(PlayerAction.LEFT);
-        server.updateServer();
-        assertEquals("NOKEY LEFT ", server.getCustomData());
-
-        // Test if queue is cleared
-        server.sendAction(PlayerAction.RIGHT);
-        server.updateServer();
-        assertEquals("RIGHT ", server.getCustomData());
-    }
-
-    /** Nothing my be null even before the firs update.*/
-    @Test
-    void nothingNullTest() {
-        assertNotNull(server.getArena());
-        assertNotNull(server.getTetromino());
-        assertNotNull(server.getNextTetromino());
-        assertNotNull(server.getGameState());
-        assertNotNull(server.getCustomData());
-    }
-
-    /** Is data plausible? */
-    @Test
-    void getDataTest() {
-        server.sendCustomData("Wunderschöner String");
-        server.updateServer();
-        assertEquals("Wunderschöner String", server.getCustomData());
-
-        //Richtige Array-Größe testen wäre toll.
-    }
-
-    @AfterEach
-    void tearDown() {
-        server.close();
-    }
 }
